@@ -1,15 +1,21 @@
 <?
-	$GLOBALS[cfg][db_host] = 'localhost';
-	$GLOBALS[cfg][db_user] = 'root';
-	$GLOBALS[cfg][db_pass] = 'root';
-	$GLOBALS[cfg][db_name] = 'bugs';
+	$GLOBALS['cfg']['db_host']	= 'localhost';
+	$GLOBALS['cfg']['db_user']	= 'root';
+	$GLOBALS['cfg']['db_pass']	= 'root';
+	$GLOBALS['cfg']['db_name']	= 'pass';
 
-	$GLOBALS[cfg][root_url]		= '/';
-	$GLOBALS[cfg][abs_root_url]	= 'http://bugs.company.com'.$GLOBALS[cfg][root_url];
+	$GLOBALS['cfg']['root_url']	= '/';
+	$GLOBALS['cfg']['app_domain']	= 'bugs.company.com';
+	$GLOBALS['cfg']['app_protocol']	= 'http';
 
-	$GLOBALS[cfg][max_attach_mb]	= 2;
+	$GLOBALS['cfg']['tz_id']	= 'PST8PDT';
+
+	$GLOBALS['cfg']['fb_app_id']		= '12345';
+	$GLOBALS['cfg']['fb_app_secret']	= 'abcde';
+
+	$GLOBALS['cfg']['max_attach_mb']	= 2;
 	
-	$GLOBALS[cfg][email_from_name]		= 'doug';
-	$GLOBALS[cfg][email_from_email]		= 'doug@company.com';
-	$GLOBALS[cfg][auto_email_args]		= '-fdoug@company.com';
+	$GLOBALS['cfg']['email_from_name']	= 'Bug Tracker';
+	$GLOBALS['cfg']['email_from_email']	= 'bugs@company.com';
+	$GLOBALS['cfg']['auto_email_args']	= '-fbugs@company.com';
 ?>

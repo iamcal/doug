@@ -5,19 +5,28 @@
 	define('APP_DIR', "$this_dir/..");
 
 
-	function loadlib($name){
-		include_once(INCLUDE_DIR."/lib_$name.php");
-	}
+	#
+	# start-up
+	#
 
 	include("$this_dir/config.php");
+
+	putenv('TZ='.$cfg['tz_id']);
+	$cfg['abs_root_url'] = $cfg['app_protocol'].'://'.$cfg['app_domain'].$cfg['root_url'];
 
 	loadlib('db');
 	loadlib('smarty');
 	loadlib('users');
 	loadlib('bugs');
 
-	putenv('TZ=PST8PDT');
 
+	#
+	# core functions
+	#
+
+	function loadlib($name){
+		include_once(INCLUDE_DIR."/lib_$name.php");
+	}
 
 	function dumper($foo){
             echo "<pre style=\"text-align: left;\">";
