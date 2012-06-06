@@ -11,3 +11,9 @@ RewriteRule ^stats/(\d{4})/(\d{2})/(\d{2})/?$	stats.php?date=$1-$2-$3 	[L]
 RewriteRule ^stats/archive/(\d{4})/?(\d{2})?/?$ stats_archive.php?y=$1&m=$2 	[L,QSA]
 RewriteRule ^stats/archive/?$			stats_archive.php		[L]
 RewriteRule ^stats/?$				stats.php			[L]
+
+
+<FilesMatch "\.css$">
+	AddType application/x-httpd-php .css
+	php_value default_mimetype "text/css; charset=UTF-8"
+</FilesMatch>
