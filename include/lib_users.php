@@ -7,11 +7,22 @@
 	
 	function users_fetch($uid){
 		$uid_enc = AddSlashes($uid);
-		return db_fetch_one("SELECT * FROM users WHERE uid='$uid_enc'");
+		$row = db_fetch_one("SELECT * FROM users WHERE uid='$uid_enc'");
+		if ($row['uid']) users_unpack($row);
+		return $row;
 	}
 	
 	function users_fetch_all(){
-		return db_fetch_all("SELECT * FROM users ORDER BY name ASC");
+		$rows = db_fetch_all("SELECT * FROM users ORDER BY name ASC");
+		foreach ($rows as &$row) users_unpack($row);
+		return $rows;
+	}
+
+	function users_unpack(&$row){
+
+		if (preg_match('!^fb_(.*)!', $row['uid'], $m)){
+			$row['image'] = "https://graph.facebook.com/$m[1]/picture";
+		}
 	}
 
 	function users_create($args){

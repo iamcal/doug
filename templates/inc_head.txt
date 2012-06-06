@@ -241,6 +241,7 @@ function showfilter(){
 <div id="nav">
 	<div style="float: right">
 {if $user.uid}
+		<img src="{$user.image}" width="16" height="16" />
 		<a href="{$cfg.root_url}settings">{$user.name}</a>
 		|
 		<a href="{$cfg.root_url}logout">Logout</a>
