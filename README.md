@@ -8,3 +8,11 @@ It uses our own flavor of <a href="https://github.com/exflickr/GodAuth">God Auth
 layer is pretty simple.
 
 Installation instructions will follow shortly...
+
+
+## Installation
+
+1. Check out the code from Git, somewhere into your webroot.
+2. Copy `include/config.php.example` to `include/config.php` and modify the setting inside.
+3. Create a folder called `templates_c` and make sure the web server can write to it.
+4. Something about the database...
