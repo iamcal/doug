@@ -240,14 +240,12 @@ function showfilter(){
 
 <div id="nav">
 	<div style="float: right">
-{if $user.name}
-		<a href="{$cfg.root_url}users/{$user.name}">Settings for {$user.name}</a>
-		{if !$user.email}
-			&nbsp;&nbsp;|&nbsp;&nbsp;
-			<a href="{$cfg.root_url}users/{$user.name}">You need to tell me your email address</a>
-		{/if}
+{if $user.uid}
+		<a href="{$cfg.root_url}settings">{$user.name}</a>
+		|
+		<a href="{$cfg.root_url}logout">Logout</a>
 {else}
-		You ({$smarty.env.TSAuth_User}) do not have a bugs account
+		<a href="{$cfg.root_url}login">Login</a>
 {/if}
 	</div>
 	<a href="{$cfg.root_url}">Open</a>

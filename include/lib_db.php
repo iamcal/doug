@@ -69,6 +69,22 @@
 
 	#################################################################
 
+	function db_insert_dupe($tbl, $hash, $hash2){
+		$fields = array_keys($hash);
+		$sql = "INSERT INTO $tbl (`".implode('`,`',$fields)."`) VALUES ('".implode("','",$hash)."')";
+
+		$bits = array();
+		foreach(array_keys($hash) as $k){
+			$bits[] = "`$k`='$hash[$k]'";
+		}
+		$sql .= " ON DUPLICATE KEY UPDATE ".implode(', ',$bits);
+
+		db_query($sql);
+		return db_insertid();
+	}
+
+	#################################################################
+
 	function db_update($tbl, $hash, $where){
 		$bits = array();
 		foreach(array_keys($hash) as $k){

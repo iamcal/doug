@@ -1,8 +1,9 @@
 RewriteEngine on
 
-RewriteRule ^(\d+)?$				bug.php?id=$1			[L,QSA]
+RewriteRule ^(\d+)$				bug.php?id=$1			[L,QSA]
 RewriteRule ^users(/[^/]+)?$ 			user.php?id=$1			[L,QSA]
 RewriteRule ^login$				login.php			[L]
+RewriteRule ^logout$				logout.php			[L]
 RewriteRule ^auth$				auth.php			[L]
 
 RewriteRule ^stats_alltime/?$			stats_alltime.php 		[L]

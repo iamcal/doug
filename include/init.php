@@ -25,27 +25,22 @@
             echo "</pre>\n";
 	}
 
+	function microtime_ms(){
+		list($usec, $sec) = explode(" ", microtime());
+		return intval(1000 * ((float)$usec + (float)$sec));
+	}
 
 
 	#
 	# log em in?
 	#
 
-	$user = array();
-	$smarty->assign_by_ref('user', $user);
-
-	if ($_ENV[TSAuth_User]){
-
-		$user = users_fetch($_ENV[TSAuth_User]);
-		
-		if (!$user['name']){
-			$user = users_create($_ENV[TSAuth_User]);
-		}
-	}
+	users_check_login();
 
 	if ($user){
 		$smarty->assign('needs_closing',db_fetch_single("SELECT count(*) AS count FROM bugs WHERE opened_user='$user[name]' AND status='resolved'"));
 	}
+
 
 	#
 	# constants

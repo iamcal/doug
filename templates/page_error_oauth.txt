@@ -1,0 +1,9 @@
+{include file='inc_head.txt' title='Login Error'}
+
+<h2>We encountered an error logging into Facebook</h2>
+
+<p><b>Error: {$smarty.get.error|escape}</b></p>
+
+<p>{$smarty.get.error_description|escape}</p>
+
+{include file='inc_foot.txt'}
