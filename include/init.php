@@ -16,8 +16,6 @@
 	loadlib('users');
 	loadlib('bugs');
 
-	db_connect();
-
 	putenv('TZ=PST8PDT');
 
 

@@ -7,15 +7,23 @@
 
 	#################################################################
 
+	function db_fatal(){
+
+		echo "<h1>Arrrgh!</h1>\n";
+		echo "<p>We were unable to connect to the database, so we're just giving up. Sorry.</p>";
+		echo "<p><code>".HtmlSpecialChars(mysql_error())."</code></p>";
+		exit;
+	}
+
+	#################################################################
+
 	function db_connect() {
-		$GLOBALS['cfg']['db_conn'] = mysql_connect($GLOBALS['cfg']['db_host'], $GLOBALS['cfg']['db_user'], $GLOBALS['cfg']['db_pass']);
+		$GLOBALS['cfg']['db_conn'] = @mysql_connect($GLOBALS['cfg']['db_host'], $GLOBALS['cfg']['db_user'], $GLOBALS['cfg']['db_pass']);
 
-		if ($GLOBALS['cfg']['db_conn']) {
-			mysql_select_db($GLOBALS['cfg']['db_name'], $GLOBALS['cfg']['db_conn']);	
-			return 1;
-		}
+		if (!$GLOBALS['cfg']['db_conn']) db_fatal();
 
-		return 0;
+		$ret = mysql_select_db($GLOBALS['cfg']['db_name'], $GLOBALS['cfg']['db_conn']);	
+		if (!$ret) db_fatal();
 	}
 
 	#################################################################
