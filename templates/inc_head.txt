@@ -238,11 +238,6 @@ function showfilter(){
 </head>
 <body>
 
-{php}
-$current = 'bugs';
-include('/usr/local/wwwIncludes/nav.txt');
-{/php}
-
 <div id="nav">
 	<div style="float: right">
 {if $user.name}
