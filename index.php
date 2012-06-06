@@ -210,6 +210,6 @@
 
 	$smarty->assign('users', users_fetch_all());
 	$smarty->assign('do_filter', 1);
-dumper($_COOKIE);
+
 	$smarty->display('page_index.txt');
 ?>

@@ -3,15 +3,17 @@
 <title>Doug{if $title} - {$title|escape}{/if}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" media="all" href="{$cfg.root_url}style.css?{$smarty.now}" />
+<script type="text/javascript" src="{$cfg.root_url}script.js?{$smarty.now}"></script>
 </head>
 <body>
 
 <div id="nav">
 	<div style="float: right">
 {if $user.uid}
-		<img src="{$user.image}" width="16" height="16" />
+		<img src="{$user.image}" width="24" height="24" />
+		&nbsp;
 		<a href="{$cfg.root_url}settings">{$user.name}</a>
-		|
+		&nbsp;&nbsp;|&nbsp;&nbsp;
 		<a href="{$cfg.root_url}logout">Logout</a>
 {else}
 		<a href="{$cfg.root_url}login">Login</a>
